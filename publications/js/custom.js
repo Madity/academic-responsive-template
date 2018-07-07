@@ -30,13 +30,14 @@ jQuery(document).ready(function(){
 	$container.isotope({
 		filter				: '*',
 		layoutMode			: 'straightDown',
-		animationEngine 	: 'css',
+		animationEngine 	: 'css'
 	});	
 	
 	$filter.find('a').click(function(){
 	  var selector = $(this).attr('data-filter');
 		$container.isotope({ 
 		filter				: selector,
+		layoutMode			: 'straightDown',
 		animationEngine 	: 'css'
 	  });
 	  return false;
