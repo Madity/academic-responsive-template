@@ -6,8 +6,8 @@
 <title>[ Navjyoti | Talks ]</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 <!-- Bootstrap -->
 <link href="css3/bootstrap.min.css" rel="stylesheet">
@@ -36,32 +36,7 @@
 <link rel="stylesheet" type="text/css" href="css3/tipsy.css"/>
 <link rel="stylesheet" type="text/css" href="css3/fancybox.css"/>
 
-<!-- Google Site Search | Search box-->
-<script>
-<!--
-  (function() {
-    var cx = '012777421281883581498:r3xp4rmwevw';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
--->
-</script>
-<!-- Google Analytics -->
-<script>
-<!--
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-70658068-1', 'auto');
-  ga('send', 'pageview');
--->
-</script>
+
 <script language="JavaScript">
 <!--
     function spiderjam(mym, myd){
@@ -132,18 +107,8 @@
                 <li class="page-scroll">
                     <a href="../index.html#contact">Contact</a>
                 </li>
-                <li class="page-scroll">
-                    <a onclick="$('#bs-example-navbar-collapse-2').toggle();">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </a>
-                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
-
-        <!-- search box submenu -->
-        <div class="collapse" id="bs-example-navbar-collapse-2">
-            <gcse:search></gcse:search>
-        </div>
 
     </div><!-- /.container-fluid -->
 </nav>
