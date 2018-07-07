@@ -31,7 +31,7 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 <script src="js/menucollapse.js"></script>
-<script type="text/javascript" src="js/arrow78.js"></script><html>
+<script type="text/javascript" src="js/arrow79.js"></script><html>
 
 
 <!-- Google Site Search | Search box-->
@@ -86,7 +86,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <span><a href="../index.html"><img border="0" width="170" src="images/csucy.png"/></a></span>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

@@ -22,46 +22,79 @@
 //
 //
 
-jQuery(document).ready(function(){ 
+jQuery(document).ready(function () {
+    // The height of the content block when it's not expanded
+    var adjustheight = 0;
 
-	var $container	 	= $('#publication-list');
-	var $filter 		= $('#publication-filter');
-		  
-	$container.isotope({
-		filter				: '*',
-		layoutMode			: 'straightDown',
-		animationEngine 	: 'css'
-	});	
-	
-	$filter.find('a').click(function(){
-	  var selector = $(this).attr('data-filter');
-		$container.isotope({ 
-		filter				: selector,
-		layoutMode			: 'straightDown',
-		animationEngine 	: 'css'
-	  });
-	  return false;
-	});	
-	
-	/* ---------------------------------------------------------------------- */
-	/*	Tipsy 
-	/* ---------------------------------------------------------------------- */
-	$("[id^=publink]").tipsy({gravity:'n', html:true});
-	
-	/* ---------------------------------------------------------------------- */
-	/*	Fancybox 
-	/* ---------------------------------------------------------------------- */
-	$container.find('a').fancybox({
-		'transitionIn'		:	'elastic',
-		'transitionOut'		:	'elastic',
-		'speedIn'			:	200, 
-		'speedOut'			:	200,
-		'scrolling'			:	'no', 
-		'overlayOpacity'	:   0.6
-	});
-	$(".publications-title").unbind('click.fb');
-	$(".series-link").unbind('click.fb');
-	$(".publications-ppt").unbind('click.fb');
-	$(".publications-pdf").unbind('click.fb');
-	$(".publications-website").unbind('click.fb');
-});	
+    // The "more" link text
+    var moreText = "Show Abstract";
+
+    // The "less" link text
+    var lessText = "Hide Abstract";
+
+    // Sets the .more-block div to the specified height and hides any content that overflows
+    $(".more-less-p .more-block").css('height', adjustheight).css('overflow', 'hidden');
+
+    // The section added to the bottom of the "more-less" div
+    //$(".more-less-p").prepend('<a href="#" class="adjust"></a>');
+
+    //$("a.adjusts").text(moreText);
+
+    $(".adjusts").toggle(function () {
+        $(this).parents("div:first").find(".more-block").css('height', 'auto').css('overflow', 'visible');
+        // Hide the [...] when expanded
+        $(this).parents("div:first").find("p.continued").css('display', 'none');
+        //$(this).text(lessText);
+        $('#classes-list').isotope('reLayout');
+        $classesContainer.css('overflow', 'visible');
+    }, function () {
+        $(this).parents("div:first").find(".more-block").css('height', adjustheight).css('overflow', 'hidden');
+        $(this).parents("div:first").find("p.continued").css('display', 'block');
+        //$(this).text(moreText);
+        $('#classes-list').isotope('reLayout');
+        $classesContainer.css('overflow', 'visible');
+    });
+
+    /* ---------------------------------------------------------------------- */
+    /*	Classes
+     /* ---------------------------------------------------------------------- */
+
+    // Needed variables
+    var $classesContainer = $('#classes-list');
+    var $classesFilter = $('#classes-filter');
+
+    // Run Isotope
+    $classesContainer.isotope({
+        filter: '*',
+        layoutMode: 'masonry',
+        animationEngine: 'jquery',
+        animationOptions: {
+            duration: 150,
+            easing: 'linear'
+        }
+    });
+
+    // Isotope Filter
+    $classesFilter.find('a').click(function () {
+        var selector = $(this).attr('data-filter');
+        $classesContainer.isotope({
+            filter: selector,
+            animationEngine: 'jquery',
+            animationOptions: {
+                duration: 150,
+                easing: 'linear',
+                queue: false
+            }
+        });
+        return false;
+    });
+
+    $classesFilter.find('a').click(function () {
+        var currentOption = $(this).attr('data-filter');
+        $classesFilter.find('a').removeClass('current');
+        $(this).addClass('current');
+    });
+
+    $classesContainer.css('overflow', 'visible');
+
+});

@@ -21,54 +21,40 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
-.publications {
+body {
+    font-size: 16px;
+}
+.classes {
 	margin:30px;
 }
 
-.publication {
-	padding-left: 15px;
-}
-
-#publication-filter{
-	padding: 0px;
-	list-style-type: none;
-}
-
-#publication-filter li {
-	float: left;
+#classes-filter li {
+    float: left;
 	margin: 0px 5px;
+    list-style: none;
 }
 
 #publication-list {
 	padding: 0px;
 }
 
-#publication-list li {
-	list-style-type: none;
+#classes-list {
+	margin-top: 10px;
+}
+
+#classes-list li {
+    list-style: circle;
 	width: 95%;
-	margin-left: 1em;
-	margin-bottom: 1em;
-}
-.publications-pdf {
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	background: url('../images/pdf.gif') no-repeat 0px 3px;
+	margin-left: 2em;
+	margin-bottom: 0.5em;
+	overflow: visible;
 }
 
-.publications-bib {
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	background: url('../images/bib.gif') no-repeat 0px 3px;
-}
-
-.publications-ref {
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	background: url('../images/references.gif') no-repeat 0px 3px;
+#classes-list #invited,
+#classes-list #english,
+#classes-list #greek {
+    margin-left: 1em;
+    list-style: none;
 }
 .publications-ppt {
 	display: inline-block;
@@ -76,14 +62,6 @@
 	height: 20px;
 	background: url('../images/ppt.gif') no-repeat 0px 3px;
 }
-
-.publications-website {
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	background: url('../images/website.png') no-repeat 0px 3px;
-}
-
 .isotope-item {
   z-index: 2;
 }
@@ -127,4 +105,8 @@
 	-ms-transition-property:     -ms-transform, opacity;
 	-o-transition-property:         top, left, opacity;
 	transition-property:         transform, opacity;
+}
+
+.bg-success {
+	background-color: #dff0d8;
 }
