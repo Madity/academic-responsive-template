@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>[ Zeinalipour | Talks ]</title>
+<title>[ Navjyoti | Talks ]</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Font Awesome Icons -->
@@ -88,7 +88,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <span><a href="../index.html"><img border="0" width="170" src="images/csucy.png"/></a></span>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -100,8 +99,7 @@
                     <ul class="dropdown-menu">
                     <li><a href="../index.html#intro">Introduction</a></li>
                         <li><a href="../bio.html">Short Bio</a></li>
-                        <li><a href="../cv.html">CV (Web)</a></li>
-                        <li><a target="_blank" href="../zeinalipour.pdf">CV (PDF)</a></li>
+                        <li><a target="_blank" href="../navjyotisingh.pdf">CV (PDF)</a></li>
                     </ul>
                 </li>
                 <li class="page-scroll">
@@ -130,9 +128,6 @@
                 <li class="page-scroll">
                 <a href="../index.html#advising">Advising</a>
                 </li>
-                <li class="page-scroll">
-                    <a target="_blank" href="http://dmsl.cs.ucy.ac.cy/projects.php">Grants</a>
-                </li>
 
                 <li class="page-scroll">
                     <a href="../index.html#contact">Contact</a>
@@ -160,7 +155,7 @@
 
 <section id="tree" style="margin-top:50px">
     <div class="container">
-        <a href="../index.html">Zeinalipour</a> > Talks
+        <a href="../index.html">Navjyoti</a> > Talks
     </div>
 </section>
 

@@ -2,23 +2,23 @@
     /*
      *
      * SmartBIB:  The SmartBIB Project allows you to present a BIB database (
-     * .bibtex files) containing your publications on the web. 
+     * .bibtex files) containing your publications on the web.
      * It is ideal for personal and project websites.
      *
      * Copyright (C) 2012 Georgios Larkou - DMSL - University of Cyprus
      *
      *
-     * This program is free software: you can redistribute it and/or modify 
-     * it under the terms of the GNU General Public License as published by 
-     * the Free Software Foundation, either version 3 of the License, or 
-     * at your option) any later version. 
+     * This program is free software: you can redistribute it and/or modify
+     * it under the terms of the GNU General Public License as published by
+     * the Free Software Foundation, either version 3 of the License, or
+     * at your option) any later version.
      *
-     * This program is distributed in the hope that it will be useful, 
-     * but WITHOUT ANY WARRANTY; without even the implied warranty of 
-     * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
-     * GNU General Public License for more details. 
+     * This program is distributed in the hope that it will be useful,
+     * but WITHOUT ANY WARRANTY; without even the implied warranty of
+     * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+     * GNU General Public License for more details.
      *
-     * Υou should have received a copy of the GNU General Public License 
+     * Υou should have received a copy of the GNU General Public License
      * along with this program. If not, see <http://www.gnu.org/licenses/>.
      *
      */
@@ -33,7 +33,7 @@
         var $yearData = array();
         var $lastType;
 		var $resultedHtml;
-        
+
         /**
          * BibTeX_Parser( $file, $data )
          *
@@ -75,50 +75,50 @@
                                  'infosite' => array(),
                                  'website' => array()
                                  );
-            
+
             if( $file )
                 $this->filename = $file;
             elseif( $data )
             $this->inputdata = $data;
-            
+
             $this->parse();
-            
+
             global $sortby;
-            
-            
+
+
             $this->sortedItems = $this->items;
-            
+
             for($i=0; $i < count($this->sortedItems['type']); $i++)
                 foreach($this->sortedItems as $key=> $value) {
-                    if (isset($value[$i]))  
+                    if (isset($value[$i]))
                         $temp[$i][$key] = $value[$i];
                 }
-            
-            
+
+
             foreach($temp as $key=>$row) {
                 $types[$key] = array_search($row['type'],$sortby);
                 $years[$key] = $row['year'];
                 $ids[$key] = $key;
             }
             array_multisort($types, SORT_ASC, $ids, SORT_ASC, $years, SORT_DESC, $temp);
-            
+
             for($i=0; $i < count($temp); $i++)
                 foreach($temp[$i] as $key=> $value)
                 $temp2[$key][$i] = $value;
-			
+
             $this->sortedItems = $temp2;
-            
+
             $this->types = $this->sortedItems['type'];
-            
+
             $this->prepareHTML();
-			
+
 			$this->yearData = array_unique($this->yearData);
-            
+
             rsort($this->yearData);
-			
+
 			return $this-> printPublications();
         }
-        
+
         /**
          * parse()
          *
@@ -134,10 +134,10 @@
                 $lines = file($this->filename);
             else
                 $lines = preg_split( '/\n/', $this->inputdata );
-            
+
             if (!$lines)
                 return;
-            
+
             foreach($lines as $line) {
                 $lineindex++;
                 if ($this->count > -1) {
@@ -149,27 +149,27 @@
                 $seg=str_replace("\"","`",$line);
                 $ps=strpos($seg,'=');
                 $segtest=strtolower($seg);
-                
+
                 // some funny comment string
                 if (strpos($segtest,'@string')!==false)
                     continue;
-                
+
                 // pybliographer comments
                 if (strpos($segtest,'@comment')!==false)
                     continue;
-                
+
                 // normal TeX style comment
                 if (strpos($seg,'%%')!==false)
                     continue;
-                
+
                 /* ok when there is nothing to see, skip it! */
                 if (!strlen($seg))
                     continue;
-                
+
                 if ("@" == $seg[0]) {
                     $this->count++;
                     $this->items['raw'][$this->count] = $line . "\r\n";
-                    
+
                     $ps=strpos($seg,'@');
                     $pe=strpos($seg,'{');
                     $this->types[$this->count]=trim(substr($seg, 1,$pe-1));
@@ -181,7 +181,7 @@
                     $ps=strpos($seg,'=');
                     $fieldcount++;
                     $var[$fieldcount]=strtolower(trim(substr($seg,0,$ps)));
-                    
+
                     if ($var[$fieldcount]=='pages') {
                         $ps=strpos($seg,'=');
                         $pm=strpos($seg,'--');
@@ -192,7 +192,7 @@
                         $ep=str_replace('=','',$pageto[$this->count]); $bp=str_replace('{','',$bp);$bp=str_replace('}','',$bp);;$ep=trim(str_replace('-','',$ep));
                     }
                     $pe=strpos($seg,'},');
-                    
+
                     if ($pe===false)
                         $value[$fieldcount]=strstr($seg,'=');
                     else
@@ -202,7 +202,7 @@
                         $this->items['raw'][$this->count] .= $line . "\r\n";
                         $pe=strpos($seg,'},');
                     }
-                    
+
                     if ($fieldcount > -1) {
                         if ($pe===false)
                             $value[$fieldcount].=' '.strstr($seg,' ');
@@ -210,13 +210,13 @@
                             $value[$fieldcount] .=' '.substr($seg,$ps,$pe);
                     }
                 }
-                
+
                 if ($fieldcount > -1) {
                     $v = $value[$fieldcount];
                     $v=str_replace('=','',$v);
                     $v=str_replace('{','',$v);
                     $v=str_replace('}','',$v);
-                    if ($var[$fieldcount]=='projects') 
+                    if ($var[$fieldcount]=='projects')
                         $v=str_replace(',',' ',$v);
                     else
                         $v=$this->str_last_replace(',',' ',$v);
@@ -229,7 +229,7 @@
                 }
             }
         }
-        
+
         function prepareHTML() {
             global $article;
             global $book;
@@ -248,15 +248,15 @@
             global $other;
             global $projects;
             global $bibTexFile;
-            
+
             $this->resultedHtml .= '<ul id="publication-list">';
-            
+
             for ($i = 0; $i <= $this->count; $i++ ) {
 				if (in_array("all", $projects) || $this->checkProject($i)) {
 					switch ($this->types[$i]) {
 						case "journal":
 							$this->htmlPublication("journal", $article, $i);
-							break;                        
+							break;
 						case "article":
 							$this->htmlPublication("article", $article, $i);
 							break;
@@ -301,33 +301,33 @@
 							break;
 						default:
 							$this->htmlPublication("other", $other, $i);
-							
+
 					}
 				}
             }
             $this->resultedHtml .= '</ul>';
             $this->resultedHtml .= '<center><small>Automatically generated from this <a href="'.$bibTexFile.'" target="_blank" >bibtex</a> using the <a target=_blank href="http://dmsl.github.com/smartbib/">Smartbib</a> project</small></center>';
         }
-        
+
         function htmlPublication($type, $fields, $element) {
-            global $delimiter; 
+            global $delimiter;
             global $sortbyTitle;
             $delimiter=", ";
             if ($this->lastType != $this->sortedItems['type'][$element]){
                 $this->lastType = $this->sortedItems['type'][$element];
                 $this->resultedHtml .= '<li><h2>'.$this->getTitle($this->sortedItems['type'][$element]).'</h2></li>';
             }
-            $this->resultedHtml .= '<li class="'.$this->sortedItems['year'][$element].' publication" title="'.$this->sortedItems['year'][$element].'">';        
-            $this->countTypes($element, $this->sortedItems['type'][$element]);         
+            $this->resultedHtml .= '<li class="'.$this->sortedItems['year'][$element].' publication" title="'.$this->sortedItems['year'][$element].'">';
+            $this->countTypes($element, $this->sortedItems['type'][$element]);
             foreach($fields as $print) {
                 if(isset($this->sortedItems[$print])){
                     if(isset($this->sortedItems[$print][$element])){
                         switch ($print) {
                             case "title":
                                 $this->resultedHtml .= '<strong>"';
-                                if(isset($this->sortedItems['durl'][$element])){ 
+                                if(isset($this->sortedItems['durl'][$element])){
                                     $this->resultedHtml .= '<a href="'.$this->sortedItems['durl'][$element].'" class="publications-title" target="_blank">';
-                                } 
+                                }
                                 $this->resultedHtml .= $this->sortedItems[$print][$element];
                                 if (isset($this->sortedItems['durl'][$element])) {
                                     $this->resultedHtml .= '</a>';
@@ -357,7 +357,7 @@
                             case "series":
                                 if(isset($this->sortedItems['infosite'][$element]))
                                     $this->resultedHtml .= "(<strong><u><a href='".$this->sortedItems['infosite'][$element]."' class='series-link' target='_blank'>".$this->sortedItems[$print][$element]."</a></u></strong>), ";
-                                else 
+                                else
                                     $this->resultedHtml .= "(<strong>".$this->sortedItems[$print][$element]."</strong>), ";
                                 break;
                             case "isbn":
@@ -384,7 +384,7 @@
                     }
                 }
                 else {
-                    echo $print;	
+                    echo $print;
                 }
             }
             if (isset($this->sortedItems['raw'][$element])) {
@@ -403,24 +403,24 @@
             }
             $this->resultedHtml .= '</li>';
         }
-        
+
         function countTypes($iterator, $type) {
             $previous = array_slice($this->sortedItems['type'], 0, $iterator + 1, true);
             $counts = array_count_values($previous);
             $all = array_count_values($this->sortedItems['type']);
-            
+
             $number = $all[$type] - $counts[$type] + 1;
             if($type == 'book') {
                 $this->resultedHtml .=  "<strong>[B".$number."]</strong> ";
-                
+
             }
             else {
                 $this->resultedHtml .=  "<strong>[".ucfirst(substr($type, 0, 1))."".$number."]</strong> ";
             }
         }
-		
+
 		function printPublications() {
-			//Print filters 
+			//Print filters
             echo '<ul id="publication-filter">';
             echo '<li><a href="#" class="btn btn-xs btn-success current" data-filter="*">All</a></li>';
             for($i = 0; $i < count($this->yearData); $i++) {
@@ -430,7 +430,7 @@
 			echo '<div style="clear:both;"></div>';
 			echo $this->resultedHtml;
 		}
-		
+
         /**
          * @param array $array
          * @param string|int $by key/offset
@@ -450,43 +450,43 @@
             foreach($params[0] as &$v) $v = $order[$v];
             foreach($array as &$v) $params[] = &$v; unset($v);
             call_user_func_array('array_multisort', $params);
-            
+
             //Convert array
             for($i=0; $i < count($array['type']); $i++) {
                 foreach($array as $key=> $value) {
                     $temp[$i][$key] = $value[$i];
                 }
             }
-            
+
             function cmp_year($a, $b) {
                 if ($a['type'] == $b['type']) {
                     return ($a['year'] > $b['year']) ? -1 : 1;
                 }
-                else 
+                else
                     return 0;
             }
-            
+
             usort($temp, 'cmp_year');
-            
+
             //Convert array back
             for($i=0; $i < count($temp); $i++) {
                 foreach($temp[$i] as $key=> $value) {
                     $temporary[$key][$i] = $value;
                 }
             }
-            
+
             print_r($temporary['year']);
             print_r($temporary['type']);
-            
+
             $filter = create_function('$a','return !is_null($a);');
             foreach($temporary as &$sub) $sub = array_filter($sub,$filter);
             return $temporary;
         }
-        
+
         function getTitle ($type) {
             global $sortby;
             global $sortbyTitle;
-            
+
             $array_size = count($sortby);
             for($i = 0; $i < $array_size; $i++)
             {
@@ -494,13 +494,13 @@
                     return $sortbyTitle[$i];
                 }
             }
-            
+
         }
-		
+
 		function checkProject($element) {
-			
+
 			global $projects;
-			
+
 			if(isset($this->sortedItems['projects'][$element])) {
 				$p = explode(" ", $this->sortedItems['projects'][$element]);
 				foreach ($p as $project) {
@@ -510,16 +510,16 @@
 			}
 			return false;
 		}
-		
+
 		function str_last_replace($search, $replace, $subject)
 		{
 			$pos = strrpos($subject, $search);
-		
+
 			if($pos !== false)
 			{
 				$subject = substr_replace($subject, $replace, $pos, strlen($search));
 			}
-		
+
 			return $subject;
 		}
     }
