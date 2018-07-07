@@ -77,9 +77,6 @@
                         <li><a target="_blank" href="../navjyotisingh.pdf">CV (PDF)</a></li>
                     </ul>
                 </li>
-                <li class="page-scroll">
-                <a href="../index.html#news">News</a>
-                </li>
                 <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 Publications<span class="caret"></span></a>
@@ -103,7 +100,6 @@
                 <li class="page-scroll">
                 <a href="../index.html#advising">Advising</a>
                 </li>
-
                 <li class="page-scroll">
                     <a href="../index.html#contact">Contact</a>
                 </li>
