@@ -113,11 +113,6 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-<section>
-    <!-- Place this tag where you want the search results to render -->
-    <gcse:searchresults-only></gcse:searchresults-only>
-</section>
-
 <section id="tree" style="margin-top:50px">
     <div class="container">
         <a href="../index.html">Navjyoti</a> > Talks
@@ -145,7 +140,7 @@
                 Enter the location of your BibTex file
 
                 */
-                $bibTexFile = 'http://dmsl.cs.ucy.ac.cy/presentations/demo.txt';
+                $bibTexFile = './presentations/demo.bib';
 
                 $bibTex = new ClassTeX_Parser();
                 $bibTex->parser($file = $bibTexFile);

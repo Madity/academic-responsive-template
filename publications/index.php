@@ -84,8 +84,8 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 Publications<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                    <li><a href="../index.html#publications">Selected</a></li>
-                        <li><a href="index.php">All</a></li>
+                      <li><a href="../index.html#publications">Selected</a></li>
+                      <li><a href="index.php">All</a></li>
                     </ul>
                 </li>
                 <li class="page-scroll">
@@ -121,7 +121,7 @@
 
 <section id="tree" style="margin-top:50px">
     <div class="container">
-        <a href="../index.html">Navjyoti</a> > Talks
+        <a href="../index.html">Navjyoti</a> > Publications
     </div>
 </section>
 
@@ -129,7 +129,7 @@
 <section id="home">
     <div class="container" id="publications">
     <br>
-    <h1 align="CENTER">Talks of Demetris Zeinalipour</h1>
+    <h1 align="CENTER">Publications of Navjyoti Singh</h1>
     <br>
     <?php
         error_reporting(E_ALL);
@@ -226,7 +226,7 @@
          Enter the location of your BibTex file
 
          */
-        $bibTexFile = 'http://www.cs.ucy.ac.cy/~dzeina/publications/demo.bib';
+        $bibTexFile = 'demo.bib';
 
         $bibTex = new BibTeX_Parser();
         $bibTex->parser($file = $bibTexFile);
