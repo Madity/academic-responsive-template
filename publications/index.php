@@ -86,7 +86,7 @@
                     </ul>
                 </li>
                 <li class="page-scroll">
-                    <a href="../talks/">Talks</a>
+                    <a href="sketches.html">Sketches</a>
                 </li>
                 <li class="page-scroll">
                     <a href="../index.html#courses">Courses</a>
