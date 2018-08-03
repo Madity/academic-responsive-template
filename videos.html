@@ -76,17 +76,36 @@
     </div><!-- /.container-fluid -->
 </nav>
 
+<section style="margin-top:50px">
+  <div class="container lead">
+    <h3>Workshop on Foundations of Arts: Dance</h3>
+    <div id="player">
+    </div>
+  </div>
+</section>
+<script>
+   // 2. This code loads the IFrame Player API code asynchronously.
+   var tag = document.createElement('script');
 
-<section id="tree" style="margin-top:50px">
-    <div class="container">
-    </div>
-</section>
-<section>
-    <div class="container lead">
-        <h3>Workshop on Foundations of Arts: Dance</h3>
-        <iframe id="ytplayer" type="text/html" width="100%" height=600px src="https://www.youtube.com/embed/?listType=playlist&list=PLfhUdaq-667P3v8LOuuZekfBhe5C7uxEy" frameborder="0" allowfullscreen>
-    </div>
-</section>
+   tag.src = "https://www.youtube.com/iframe_api";
+   var firstScriptTag = document.getElementsByTagName('script')[0];
+   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+   // 3. This function creates an <iframe> (and YouTube player)
+   //    after the API code downloads.
+   var player;
+   function onYouTubeIframeAPIReady() {
+     player = new YT.Player('player', {
+       width: "100%",
+       height: "600px",
+       playerVars: {
+            listType:'playlist',
+            list: 'PLfhUdaq-667P3v8LOuuZekfBhe5C7uxEy'
+        }
+     });
+   }
+ </script>
+
 <hr class="star-primary">
 <footer>
     <small>
