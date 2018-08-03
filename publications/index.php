@@ -74,7 +74,7 @@
                     <a target="_blank" href="../navjyotisingh.pdf">CV (PDF)</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="publications/">Publications</a>
+                    <a href="">Publications</a>
                 </li>
 
                 <li class="page-scroll">
@@ -160,21 +160,21 @@
          Please modify the example below as desired  is presented bellow.
          */
 
-        $article = array("title", "author", "journal", "series", "location", "publisher", "volume", "pages", "address", "isbn");
-        $book = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
-        $booklet = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
-        $conference = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
-        $inbook = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
-        $incollection = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "chapter", "pages", "address", "isbn");
-        $inproceedings = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "chapter", "pages", "address", "isbn");
-        $manual = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
-        $mastersthesis = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
-        $misc = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
-        $phdthesis = array("title", "author", "journal", "series", "location", "publisher", "volume", "pages", "address", "isbn");
-        $proceedings = array("booktitle", "series", "author", "location", "publisher", "volume", "pages", "address", "isbn");
-        $techreport = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
-        $unpublished = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
-        $other = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
+        $article = array("title", "author", "journal", "series", "location", "publisher", "volume", "pages");
+        $book = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages");
+        $booklet = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages");
+        $conference = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages");
+        $inbook = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages");
+        $incollection = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "chapter", "pages");
+        $inproceedings = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "chapter", "pages");
+        $manual = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages");
+        $mastersthesis = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages");
+        $misc = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages");
+        $phdthesis = array("title", "author", "journal", "series", "location", "publisher", "volume", "pages");
+        $proceedings = array("booktitle", "series", "author", "location", "publisher", "volume", "pages");
+        $techreport = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages");
+        $unpublished = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages");
+        $other = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages");
 
         /*
          Delimiter for Seperating each bibtex field
@@ -188,8 +188,8 @@
 
          */
 
-        $sortby = array('journal', 'conference', 'book', 'editorial', 'theses', 'gconferences');
-        $sortbyTitle = array('Journal and Magazine Papers', 'Conference and Workshop Papers', 'Book Chapters', 'Editorials','Theses', 'Greek Conferences');
+        $sortby = array('journal', 'conference', 'book');
+        $sortbyTitle = array('Journal and Conference Papers', 'Conference and Workshop Papers', 'Book Chapters');
 
         $projects = array('all');
 
