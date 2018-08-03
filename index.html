@@ -36,10 +36,6 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"  data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="glyphicon glyphicon-search"></span>
-            </button>
             <button id="button2" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -52,23 +48,19 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                Home<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                    <li><a onclick="javascript:reset_menus();$('#tab-1-content').show();" href="#intro">Introduction</a></li>
-                        <li><a href="bio.html">Research</a></li>
-                        <li><a target="_blank" href="navjyotisingh.pdf">CV (PDF)</a></li>
-                    </ul>
+                <li class="page-scroll">
+                    <a href="index.html">Home</a>
                 </li>
-                <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                Publications<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                    <li><a onclick="javascript:reset_menus();$('#tab-3-content').show();" href="#publications">Selected</a></li>
-                        <li><a href="publications/">All</a></li>
-                    </ul>
+                <li class="page-scroll">
+                    <a href="bio.html">Research Agenda</a>
                 </li>
+                <li class="page-scroll">
+                    <a target="_blank" href="navjyotisingh.pdf">CV (PDF)</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="publications/">Publications</a>
+                </li>
+
                 <li class="page-scroll">
                     <a href="talks/">Talks</a>
                 </li>
@@ -76,16 +68,7 @@
                     <a href="sketches.html">Sketches</a>
                 </li>
                 <li class="page-scroll">
-                    <a onclick="javascript:reset_menus();$('#tab-5-content').show();" href="#awards">Awards</a>
-                </li>
-                <li class="page-scroll">
-                    <a onclick="javascript:reset_menus();$('#tab-6-content').show();" href="#service">Service</a>
-                </li>
-                <li class="page-scroll">
-                <a onclick="javascript:reset_menus();$('#tab-7-content').show();" href="#advising">Advising</a>
-                </li>
-                <li class="page-scroll">
-                    <a onclick="javascript:reset_menus();$('#tab-9-content').show();" href="#contact">Contact</a>
+                    <a href="videos.html">Videos</a>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -94,395 +77,23 @@
 </nav>
 
 <!-- Home Section -->
-<section id="home" style="margin-top:40px">
+<section id="home" style="margin-top:60px">
 <div class="container">
-        <div align="left" class="col-md-3">
-            <a target="_blank" href="http://www.cs.ucy.ac.cy/~dzeina/zeinalipour.jpg">
-                <img id="mobile-img" src="images/navjyotisingh.jpg" width="200" border="0" height="250" alt=""></a>
+        <div align="center" class="col-md-12">
+                <img id="img" src="images/navjyotisingh.jpg"/>
         </div>
-        <div align="left" class="col-md-4">
-            <h3>Navjyoti Singh
-
-            <h4>(1958-2018)<br><!--	
-            Center for Exact Humanities<br>
-            International Institute of Information Technology<br>
-            Gachibowli, Hyderabad<br>
-            Telangana, India - 500032
-            <br>-->
-            <!--Tel/Fax: <a href="tel:04066531000">040-66531000</a><br/>
-            Fax: <a href="tel:04066531000">040-66531000</a><br/>
-            Email:
-            <script language="JavaScript">
-                 
-                document.write("&nbsp;");
-                spiderjam('singh.navjyoti','gmail.com');
-                -->
-            <!--</script>
-            Permanent Address: 18, Vidya Vihar, West Enclave
-            Pitampura, New Delhi, India - 110034<br/> -->
-            </h4>
-        </div>
-
-        <!--<p><a href="#" class="btn btn-primary">More &raquo;</a></p>-->
-        <i class="expandshow" style="display:none;" id="tab-1">
-            <button class="btn btn-primary btn-lg btn-block" style="width: 100%;" onclick="javascript:$('.allshow').show();$('.noshow').hide();$('.collapseshow').show();$('.expandshow').hide();">EXPAND ALL SECTIONS <span class="glyphicon glyphicon-chevron-down"></span></button>
-        </i>
-        <i class="collapseshow" style="display:none;" id="tab-1">
-            <button class="btn btn-primary btn-lg btn-block" style="display: block; width: 100%;" onclick="javascript:$('.allshow').hide();$('.noshow').show();$('.expandshow').show();$('.collapseshow').hide();">COLLAPSE ALL SECTIONS <span class="glyphicon glyphicon-chevron-up"></span></button>
-        </i>
-
     </div>
 </section>
 
 <!-- Home Section -->
-<!--
-<section id="intro">
-    <div class="container lead">
-        <div style="text-align: left; margin-top:10px" class="col-md-12">
-            <!--<h2>Welcome!</h2>-->
-
-       <!--     <i class="noshow" style="display:none;" id="tab-1">
-            <button class="btn btn-default btn-lg btn-block" style="display: block; width: 100%;" onclick="javascript:$('#tab-1-content').toggle();">Introduction <span class="glyphicon glyphicon-chevron-right"></span></button>
-            </i>
-
-            <div class="allshow" style="display:none;" id="tab-1-content">
-            <hr class="star-primary">
-
-            <p class="lead">Add a short introduction
-            </p>
-
-            <p><a href="bio.html" class="btn-sm btn-primary">Short Biography &raquo;</a>
-               <a href="cv.html" class="btn-sm btn-primary">CV (Web)&raquo;</a>
-               <a href="zeinalipour.pdf" class="btn-sm btn-primary">CV (PDF)&raquo;</a>
-            </div>
-
-        </div>
-    </div>
-</section> -->
-
-<div class="twitterlow" style="display:none;" id="t1">
-<!-- News Section -->
-<section id="news">
-    <div class="container lead">
-        <div style="text-align: left; margin-top:10px" class="col-md-12">
-
-            <i class="noshow" style="display:none;" id="tab-2">
-                <button class="btn btn-default btn-lg btn-block" style="display: block; width: 100%;" onclick="javascript:$('#tab-2-content').toggle();">News  <span class="glyphicon glyphicon-chevron-right"></span></button>
-            </i>
-            <i class="allshow" style="display:none;" id="tab-2-content">
-
-            <hr class="star-primary">
-
-            <h2>News</h2>
-            <center><a class="twitter-timeline" href="https://twitter.com/dmslucy" data-chrome="nofooter" data-widget-id="346662554203992065">Tweets
-                by @dmslcy</a>
-            <script>!function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                if (!d.getElementById(id)) {
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = p + "://platform.twitter.com/widgets.js";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }
-            }(document, "script", "twitter-wjs");
-            </script>
-            </center>
-            </i>
+<section id="text">
+<div class="container">
+        <div align="center" class="col-md-12">
+            <h2>Navjyoti Singh</h2>
+            <h3>(1958-2018)</h3>
         </div>
     </div>
 </section>
-</div>
-
-<!-- Research Section --> <!--	 
-<section id="publications">
-    <div class="container lead">
-        <div style="text-align: left; margin-top:10px" class="col-md-12">
-
-            <i class="noshow" style="display:none;" id="tab-3">
-                <button class="btn btn-default btn-lg btn-block" style="display: block; width: 100%;" onclick="javascript:$('#tab-3-content').toggle();">Publications  <span class="glyphicon glyphicon-chevron-right"></span></button>
-            </i>
-            <div class="allshow" style="display:none;" id="tab-3-content">
-            <hr class="star-primary">
-
-            <h2>Selected Publications <a href="publications/" class="btn btn-primary">All Publications&raquo;</a></h2>
-            <h4>
-            <span class="label label-warning">
-                <a target="_blank" href="https://en.wikipedia.org/wiki/H-index"><font color=white>h-index</font></a>: 21
-            </span>&nbsp;
-            <span class="label label-warning">
-               <a target="_blank" href="https://scholar.google.com/citations?user=HCxwGIkAAAAJ&hl=en"><font color=white>Citations</font></a>: 2041
-            </span>&nbsp;
-            <span class="label label-warning">
-                <a target="_blank" href="https://en.wikipedia.org/wiki/Erd&ouml;s_number"><font color="white">Erd&ouml;s #</font></a>: 3
-            </span>
-            </h4>
-            <ul>
-                 <li><span class="label label-success">Sample Journal</span> <a target="_blank" href="http://www.cs.ucy.ac.cy/~dzeina/papers/infosys16-proxplus.pdf">"Sample Title"</a>, Author Names, <b>Work shop / conference name</b>, Book / Journal details <font color="red">(in press)</font>.</li>
-            </ul>
-            <p><a href="publications/" class="btn btn-primary">All Publications &raquo;</a>
-            </p>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-<!-- Courses Section --><!--
-<section id="courses">
-    <div class="container lead">
-        <div style="text-align: left; margin-top:10px" class="col-md-12">
-
-            <i class="noshow" style="display:none;" id="tab-1">
-                <button class="btn btn-default btn-lg btn-block"  style="display: block; width: 100%;" onclick="javascript:$('#tab-4-content').toggle();">Courses  <span class="glyphicon glyphicon-chevron-right"></span></button>
-            </i>
-            <div class="allshow" style="display:none;" id="tab-4-content">
-            <hr class="star-primary">
-            <h2>Courses <a href="teaching.html" class="btn btn-primary">More &raquo;</a></h2>
-            <ul>
-                <li><span class="label label-success">Sample Course Code</span> <a href="http://www.cs.ucy.ac.cy/~dzeina/courses/epl646/">Sample Course Name</a> (Semester)</li>
-                <li><span class="label label-default">Sample Course Code</span> <a target="_blank" href="http://www.cs.ucy.ac.cy/~dzeina/courses/epl446/">Sample Course Name</a></li>
-            </ul>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-<!-- Courses Section --><!--
-<section id="awards">
-    <div class="container lead">
-        <div style="text-align: left; margin-top:10px" class="col-md-12">
-
-            <i class="noshow" style="display:none;" id="tab-1">
-                <button class="btn btn-default btn-lg btn-block"  style="display: block; width: 100%;" onclick="javascript:$('#tab-5-content').toggle();">Awards  <span class="glyphicon glyphicon-chevron-right"></span></button>
-            </i>
-            <div class="allshow" style="display:none;" id="tab-5-content">
-
-            <hr class="star-primary">
-            <h2>Selected Awards <a href="cv.html#SECTION000120000000000000000" class="btn btn-primary">More &raquo;</a></h2>
-            <ul>
-                <li>
-                    <span class="label label-success">EVARILOS'14</span> <a target="_blank" href="http://www.evarilos.eu/open-challenge.php">Best Demo Award</a>, EVARILOS Open Challenge, FP7 Project (#317989), European Union, Berlin, Germany, 2014.</span>
-                </li>
-            </ul>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-<!-- Service Section -->
-<!--
-<section id="service">
-
-    <div class="container lead">
-        <div style="text-align: left; margin-top:10px" class="col-md-12">
-
-            <i class="noshow" style="display:none;" id="tab-6">
-                <button class="btn btn-default btn-lg btn-block"  style="display: block; width: 100%;" onclick="javascript:$('#tab-6-content').toggle();">Service  <span class="glyphicon glyphicon-chevron-right"></span></button>
-            </i>
-            <div class="allshow" style="display:none;" id="tab-6-content">
-
-           <hr class="star-primary">
-           <h2>Professional Service <a href="cv.html#SECTION00070000000000000000" class="btn btn-primary">More &raquo;</a></h2>
-
-           <p>
-           <span class="label label-success">Conference Committees</span>
-           <ul>
-               <li>
-                   <b>ACM SIGMOD:</b>
-                   <a href="http://www.sigmod2015.org/org_sigmod_pc.shtml" target="_blank"><b>2015</b></a>,
-                   <a href="http://www.sigmod2014.org/org_sigmod_demo_pc.shtml" target="_blank">2014</a>,
-                   <a href="http://www.sigmod.org/2013/org_sigmod_demo_pc.shtml" target="_blank">2013</a>,
-                   <a href="http://www.sigmod.org/2012/org_sigmod_demo_pc.shtml" target="_blank">2012</a>
-                   <i>[ACM's Management of Data Conference]</i>
-               </li>
-            </ul>
-
-            <span class="label label-success">Workshop and Symposia Committees</span>
-            <ul>
-                <li>
-                    <b>ACM ExploreDB:</b>
-                    <a href="https://sites.google.com/site/exploredb2016/organization" target="_blank"><b>2016</b></a>,
-                    <a href="https://sites.google.com/site/exploredb2015/organization" target="_blank"><b>2015</b></a>,
-                    <a href="https://sites.google.com/site/exploredb2014/organization" target="_blank">2014</a>
-                    <i>[Intl. Workshop on Exploratory Search in Databases and the Web @ ACM SIGMOD]</i>
-                </li>
-            </ul>
-
-            <span class="label label-success">Journal and Magazine Referee</span>
-            <ul>
-                <li>
-                    <b>Journal Referee:</b>
-                    Springer's <a href="http://www.springer.com/computer/database+management+&amp;+information+retrieval/journal/778" target="_blank">VLDB Journal</a> (3),
-                    IEEE <a href="http://www.computer.org/tkde/" target="_blank">TKDE</a> (12),
-                    IEEE <a href="http://www.computer.org/tmc/" target="_blank">TMC</a> (2),
-                    IEEE <a href="http://www.computer.org/tkde/" target="_blank">TPDS</a> (2),
-                    IEEE <a href="http://bbcrlab-pc9.bbcrlabpcnet.uwaterloo.ca/tvt/index.html" target="_blank">TVT</a> (1),
-                    IEEE <a href="http://www.computer.org/tc/" target="_blank">TC</a> (1),
-                    IEEE <a href="http://www.ieee-cis.org/pubs/tec/" target="_blank">TEC</a> (2),
-                    ACM's <a href="http://tist.acm.org/" target="_blank">TIST</a> (2),
-                    ACM's <a href="http://taas.acm.org/" target="_blank">TAAS</a> (1),
-                    ACM's <a href="http://www.sigmod.org/publications/sigmod-record/">Sigmod Record</a> (1),
-                    Elsevier's <a href="http://www.elsevier.com/locate/is" target="_blank">Infosys</a> (2),
-                    Elsevier's <a href="http://www.elsevier.com/locate/ins" target="_blank">InfoSciences</a> (4),
-                    Elsevier's <a href="http://www.elsevier.com/locate/adhoc" target="_blank">Adhoc</a> (3),
-                    Elsevier's <a href="http://www.journals.elsevier.com/computer-communications/" target="_blank">ComCom</a> (5),
-                    Elsevier's <a href="http://www.elsevier.com/locate/jpdc" target="_blank">JPDC</a> (2),
-                    Elsevier's <a href="http://www.elsevier.com/locate/datak" target="_blank">DKE</a> (1),
-                    Springer's <a href="http://www.springerlink.com/content/100257/" target="_blank">DADP</a> (3),
-                    Springer's <a href="http://link.springer.com/journal/10115" target="_blank">KAIS</a> (1),
-                    Springer's <a href="http://www.springer.com/computer/database+management+%26+information+retrieval/journal/10618" target="_blank">DMKD</a> (1),
-                    <a href="http://www.computer.org/tkde/" target="_blank">PPL</a> (1)
-                </li>
-            </ul>
-            </p>
-            </div>
-        </div>
-    </div>
-</section>
--->
-<!-- Courses Section -->
-
-<!--
-<section id="advising">
-    <div class="container lead">
-        <div style="text-align: left; margin-top:10px" class="col-md-12">
-
-           <i class="noshow" style="display:none;" id="tab-7">
-                <button class="btn btn-default btn-lg btn-block"  style="display: block; width: 100%;" onclick="javascript:$('#tab-7-content').toggle();">Advising  <span class="glyphicon glyphicon-chevron-right"></span></button>
-            </i>
-           <div class="allshow" style="display:none;" id="tab-7-content">
-
-            <hr class="star-primary">
-            <h2>Advising <a href="cv.html#SECTION000110000000000000000" class="btn btn-primary">More &raquo;</a></h2>
-            <ul>
-                <li>
-                    <span class="label label-success">Postdoc</span> <a target="_blank" href="http://www.cs.ucy.ac.cy/~gchatzim/">George Chatzimilioudis</a>, Visiting Lecturer at the University of Cyprus, Cyprus.
-                </li>
-            </ul>
-            </div>
-        </div>
-    </div>
-</section>
--->
-
-<!-- Home Section -->
-<!--
-<section id="links">
-    <div class="container lead">
-        <div style="text-align: left; margin-top:10px" class="col-md-12">
-
-            <i class="noshow" style="display:none;" id="tab-8">
-                <button class="btn btn-default btn-lg btn-block"  style="display: block; width: 100%;" onclick="javascript:$('#tab-8-content').toggle();">Links  <span class="glyphicon glyphicon-chevron-right"></span></button>
-            </i>
-
-            <div class="allshow" style="display:none;" id="tab-8-content">
-
-            <hr class="star-primary">
-            <h2>Random Links</h2>
-            <ul>
-                <li><span class="label label-success"><a target="_blank" href="http://www.cs.ucy.ac.cy/colloquium/"><font color="white">Colloquium</font></a></span> I am the Computer Science Colloquium Coordinator.</li>
-                <li><span class="label label-default"><a target="_blank" href="http://www.homepages.ucl.ac.uk/~uccazei/"><font color="white">Brother</font></a></span> My brother's website at UCL, UK.</li>
-                <li><span class="label label-info"><a target="_blank" href="https://smartlib.cs.ucy.ac.cy/scripts/exportBooks.php?mykey=0a05bb77edad7395da818f361f8115a2"><font color="white">Books</font></a></span> My book collection constructed using our <a target="_blank" href="http://smartlib.cs.ucy.ac.cy/">SmartLib project.</a></li>
-                <li><span class="label label-danger"><a target="_blank" href="https://code.org/learn"><font color="white">Hour-of-Code</font></a></span> I support the hour of code iniative as a volunteer instructor.</a></li>
-                <li><span class="label label-primary"><a target="_blank" href="https://github.com/dmsl"><font color="white">Github</font></a></span> I support open-source code development.</a></li>
-                <li><span class="label label-warning"><a target="_blank" href="http://www.kyreniaship.org/"><font color="white">Kyrenia-Chrysocava</font></a></span> A project aimed to preserve the cultural heritage of the <a target="_blank" href="https://en.wikipedia.org/wiki/Kyrenia_ship">Kyrenia ship</a>.</li>
-                <li><span class="label label-success"><font color="white">Cycling</font></span> My favorite hobby besides programming :-)</a></li>
-            </ul>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- pictures it is yayyyyyyyyyy
-<!-- Home Section --> <!--
-<section id="links">
-    <div class="container lead">
-        <div style="text-align: left; margin-top:10px" class="col-md-12">
-          <iframe src="https://albumizr.com/a/NUOW" scrolling="no" frameborder="0" allowfullscreen width="700" height="400"></iframe>
-        </div>
-    </div>
-</section> -->
-
-<!-- Home Section -->
-<!--
-<section id="contact">
-    <div class="container lead">
-        <div style="text-align: left; margin-top:10px" class="col-md-12">
-
-            <i class="noshow" style="display:none;" id="tab-9">
-                <button class="btn btn-default btn-lg btn-block"  style="display: block; width: 100%;" onclick="javascript:$('#tab-9-content').toggle();">Contact  <span class="glyphicon glyphicon-chevron-right"></span></button>
-            </i>
-            <div class="allshow" style="display:none;" id="tab-9-content">
-
-            <hr class="star-primary">
-            <h2>Contact</h2>
-            <div class="container lead">
-                <div align="left" class="col-md-3">
-                    <h4 class="myEN">
-                        POSTAL ADDRESS (EN | <a target="_blank" onclick="javascript:$('.myEN').hide();$('.myEL').show();">EL</a>)
-                    </h4>
-
-                    <h4 class="myEL" style="display:none">
-                            ΤΑΧΥΔΡΟΜ. ΔΙΕΥΘ. (<a target="_blank" onclick="javascript:$('.myEN').show();$('.myEL').hide();">EN</a> | EL)
-                    </h4>
-
-                    <p class="myEL" style="display:none">
-                    Δημήτρης Ζεϊναλιπούρ<br>
-                    Τμήμα Πληροφορικής<br>
-                    Πανεπιστήμιο Κύπρου<br>
-                    Τ.Θ. 20537<br>
-                    1678 Λευκωσία, ΚΥΠΡΟΣ<br>
-                    </p>
-
-                    <p class="myEN">
-                        Demetris Zeinalipour<br>
-                        Dept. of Computer Science<br>
-                        University of Cyprus<br>
-                        P.O. Box 20537<br>
-                        1678 Nicosia, CYPRUS<br>
-                    </p>
-                    Email:
-                    <script language="JavaScript">
-                        <!--
-                        document.write("&nbsp;");
-                        spiderjam('dzeina','cs.ucy.ac.cy');
-                        -->
-         <!--           </script><br>
-                </div>
-
-                <div align="left" class="col-md-3">
-                    <h4>CONTACT VCARD</h4>
-                    <p>
-                     <a href="zeinalipour.vcf"><img src="images/zeinalipour-qr.gif" border="0" width="150"><br>
-                    http://goo.gl/ndCbTg</a>
-
-                    <!--   <a href="zeinalipour.vcf" class="btn btn-primary">Get VCF Card &raquo;</a>-->
-            <!--        </p>
-                </div>
-
-                <div align="left" class="col-md-3">
-                    <h4>OFFICE ADDRESS</h4>
-                    <p>B106, Computer Science,<br/>
-                        Building FST-01,<br/>
-                        1 University Avenue,<br/>
-                        2109 Aglantzia, CYPRUS<br/>
-                        Tel: <a href="tel:0035722892755">+357-22892755</a><br/>
-                        Fax: <a href="tel:0035722892701">+357-22892701</a><br/>
-                        <br/>
-                    </p>
-                </div>
-
-                <div align="left" class="col-md-3">
-                    <h4>OFFICE DIRECTIONS</h4>
-                    <p><a href="http://goo.gl/lJjRX8" target="_blank"><img src="images/anyplace-directions.jpg" border="0"
-                        width="150"> <br>http://goo.gl/lJjRX8</a>
-                    </p>
-                </div>
-        </div>
-        <hr class="star-primary">
-        </div>
-
-</section>
-
--->
 
 <hr class="star-primary">
 <footer>

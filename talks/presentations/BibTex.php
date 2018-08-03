@@ -2,23 +2,23 @@
 /*
  *
  * SmartBIB: The SmartBIB Project allows you to present a BIB database (
- * .bibtex files) containing your publications on the web. 
+ * .bibtex files) containing your publications on the web.
  * It is ideal for personal and project websites.
  *
  * Copyright (C) 2012 Georgios Larkou - DMSL - University of Cyprus
  *
  *
- * This program is free software: you can redistribute it and/or modify 
- * it under the terms of the GNU General Public License as published by 
- * the Free Software Foundation, either version 3 of the License, or 
- * at your option) any later version. 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful, 
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
- * GNU General Public License for more details. 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
  *
- * Υou should have received a copy of the GNU General Public License 
+ * Υou should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  */
@@ -33,7 +33,7 @@ class ClassTeX_Parser
 	var $yearData;
 	var $lastType;
     var $resultedHtml;
-	
+
     /**
      * BibTeX_Parser( $file, $data )
      *
@@ -55,22 +55,22 @@ class ClassTeX_Parser
             'url' => array(),
 
         );
-        
+
         if( $file )
             $this->filename = $file;
         elseif( $data )
             $this->inputdata = $data;
-        
+
         $this->parse();
-		
+
 		$this->types = array_unique($this->items['type']);
 		$this->types = array_values($this->types);
-		
+
 		//print_r($this->sortedItems['type']);
-		
+
 		global $sortby;
-		
-		
+
+
 		$this->sortedItems = $this->items;
 
 		return $this->printPublications();
@@ -91,10 +91,10 @@ class ClassTeX_Parser
             $lines = file($this->filename);
         else
             $lines = preg_split( '/\n/', $this->inputdata );
-    
+
         if (!$lines)
             return;
-    
+
         foreach($lines as $line) {
 			$lineindex++;
 			if ($this->count > -1) {
@@ -106,27 +106,27 @@ class ClassTeX_Parser
             $seg=str_replace("\"","`",$line);
             $ps=strpos($seg,'=');
             $segtest=strtolower($seg);
-    
+
             // some funny comment string
             if (strpos($segtest,'@string')!==false)
                 continue;
-    
+
             // pybliographer comments
             if (strpos($segtest,'@comment')!==false)
                 continue;
-    
+
             // normal TeX style comment
             if (strpos($seg,'%%')!==false)
                 continue;
-    
+
             /* ok when there is nothing to see, skip it! */
             if (!strlen($seg))
                 continue;
-    
+
             if ("@" == $seg[0]) {
                 $this->count++;
                 $this->items['raw'][$this->count] = $line . "\r\n";
-                
+
                 $ps=strpos($seg,'@');
                 $pe=strpos($seg,'{');
                 $this->types[$this->count]=trim(substr($seg, 1,$pe-1));
@@ -138,7 +138,7 @@ class ClassTeX_Parser
                 $ps=strpos($seg,'=');
                 $fieldcount++;
                 $var[$fieldcount]=strtolower(trim(substr($seg,0,$ps)));
-    
+
                 if ($var[$fieldcount]=='pages') {
                     $ps=strpos($seg,'=');
                     $pm=strpos($seg,'--');
@@ -149,7 +149,7 @@ class ClassTeX_Parser
                     $ep=str_replace('=','',$pageto[$this->count]); $bp=str_replace('{','',$bp);$bp=str_replace('}','',$bp);;$ep=trim(str_replace('-','',$ep));
                 }
                 $pe=strpos($seg,'},');
-                
+
                 if ($pe===false)
                     $value[$fieldcount]=strstr($seg,'=');
                 else
@@ -159,7 +159,7 @@ class ClassTeX_Parser
                 $this->items['raw'][$this->count] .= $line . "\r\n";
                 $pe=strpos($seg,'},');
 				}
-                
+
                 if ($fieldcount > -1) {
                     if ($pe===false)
                         $value[$fieldcount].=' '.strstr($seg,' ');
@@ -167,13 +167,13 @@ class ClassTeX_Parser
                         $value[$fieldcount] .=' '.substr($seg,$ps,$pe);
                 }
             }
-            
+
             if ($fieldcount > -1) {
                 $v = $value[$fieldcount];
                 $v=str_replace('=','',$v);
                 $v=str_replace('{','',$v);
                 $v=str_replace('}','',$v);
-				if ($var[$fieldcount]=='author' || $var[$fieldcount]=='location' ) 
+				if ($var[$fieldcount]=='author' || $var[$fieldcount]=='location' )
                 	$v=$this->str_last_replace(',',' ',$v);
 				else
 					$v=$this->str_last_replace(',',' ',$v);
@@ -186,11 +186,11 @@ class ClassTeX_Parser
             }
         }
     }
-	
-	function printPublications() {	
-		global $sortby; 
-		global $sortbyTitle;	
-		//Print filters 
+
+	function printPublications() {
+		global $sortby;
+		global $sortbyTitle;
+		//Print filters
 		echo '<ul id="classes-filter">';
 		echo '<li><a href="#"  class="btn btn-xs btn-success current" data-filter="*">All</a></li>';
 		for($i = 0; $i < count($this->types); $i++) {
@@ -200,7 +200,7 @@ class ClassTeX_Parser
 		echo '</ul>';
   		echo '<div style="clear:both;"></div>';
     	echo '<ul id="classes-list">';
-		
+
 		for ($i = 0; $i <= $this->count; $i++ ) {
 			switch ($this->sortedItems['type'][$i]) {
 				case "undergraduate":
@@ -211,15 +211,15 @@ class ClassTeX_Parser
 					break;
 				default:
 					$this->htmlPublication("undergraduate", $i);
-				
+
 			}
 		}
 		echo '</ul>';
 	}
-	
+
 	function htmlPublication($type, $element) {
-		global $delimiter; 
-		global $sortby; 
+		global $delimiter;
+		global $sortby;
 		global $sortbyTitle;
 		$delimiter=", ";
         if ($this->lastType != $this->sortedItems['type'][$element]){
@@ -232,7 +232,7 @@ class ClassTeX_Parser
         if(isset($this->sortedItems['location'][$element])) {
             echo '<div class="more-less-p">"<a href="#" class="adjusts">'.$this->sortedItems['title'][$element].'</a>", '.$this->sortedItems['location'][$element].', <span class="timelineDate">'.$this->sortedItems['year'][$element].'</span>';
         }
-        
+
         if (isset($this->sortedItems['link'][$element])) {
             echo  '&nbsp;<a href="'.$this->sortedItems['link'][$element].'" class="publications-ppt"original-title="Presentation" target="_blank"></a>';
           // $this->resultedHtml .= '<a target="_blank" title="Powerpoint" class="publications-title" href="'.$this->sortedItems['powerpoint'][$element].'"><i class="fa fa-file-powerpoint-o">&nbsp;</i></a>';
@@ -254,12 +254,12 @@ class ClassTeX_Parser
 	function str_last_replace($search, $replace, $subject)
 	{
 		$pos = strrpos($subject, $search);
-	
+
 		if($pos !== false)
 		{
 			$subject = substr_replace($subject, $replace, $pos, strlen($search));
 		}
-	
+
 		return $subject;
 	}
 }

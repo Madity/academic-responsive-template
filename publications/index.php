@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>[ Navjyoti | Publications ]</title>
+<title>Navjyoti Singh</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Font Awesome Icons -->
@@ -52,10 +52,6 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button onclick="javascript:firefox();" type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <a href="onclick="javascript:$('#bs-example-navbar-collapse-2').toggle();"><span onclick="javascript:$('#bs-example-navbar-collapse-2').toggle();" class="glyphicon glyphicon-search"></span></a>
-            </button>
             <button id="button2" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -68,48 +64,30 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                Home<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                    <li><a href="../index.html#intro">Introduction</a></li>
-                        <li><a href="../bio.html">Short Bio</a></li>
-                        <li><a target="_blank" href="../navjyotisingh.pdf">CV (PDF)</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                Publications<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="../index.html#publications">Selected</a></li>
-                      <li><a href="index.php">All</a></li>
-                    </ul>
+                <li class="page-scroll">
+                    <a href="../index.html">Home</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="sketches.html">Sketches</a>
+                    <a href="../bio.html">Research Agenda</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="../index.html#courses">Courses</a>
+                    <a target="_blank" href="../navjyotisingh.pdf">CV (PDF)</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="../index.html#awards">Awards</a>
+                    <a href="publications/">Publications</a>
+                </li>
+
+                <li class="page-scroll">
+                    <a href="../talks/">Talks</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="../index.html#service">Service</a>
+                    <a href="../sketches.html">Sketches</a>
                 </li>
                 <li class="page-scroll">
-                <a href="../index.html#advising">Advising</a>
-                </li>
-                <li class="page-scroll">
-                    <a href="../index.html#contact">Contact</a>
+                    <a href="../videos.html">Videos</a>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->
-
-        <!-- search box submenu -->
-        <div class="collapse" id="bs-example-navbar-collapse-2">
-            <gcse:search></gcse:search>
-        </div>
 
     </div><!-- /.container-fluid -->
 </nav>
@@ -117,7 +95,6 @@
 
 <section id="tree" style="margin-top:50px">
     <div class="container">
-        <a href="../index.html">Navjyoti</a> > Publications
     </div>
 </section>
 
@@ -125,7 +102,7 @@
 <section id="home">
     <div class="container" id="publications">
     <br>
-    <h1 align="CENTER">Publications of Navjyoti Singh</h1>
+    <h1 align="center">Conferences, Workshops and Journal Papers</h1>
     <br>
     <?php
         error_reporting(E_ALL);
@@ -183,21 +160,21 @@
          Please modify the example below as desired  is presented bellow.
          */
 
-        $article = array("title", "author", "journal", "series", "location", "publisher", "volume", "pages", "address", "isbn", "year");
-        $book = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn", "year");
-        $booklet = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn", "year");
-        $conference = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn", "year");
-        $inbook = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn", "year");
-        $incollection = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "chapter", "pages", "address", "isbn", "year");
-        $inproceedings = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "chapter", "pages", "address", "isbn", "year");
-        $manual = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn", "year");
-        $mastersthesis = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn", "year");
-        $misc = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn", "year");
-        $phdthesis = array("title", "author", "journal", "series", "location", "publisher", "volume", "pages", "address", "isbn", "year");
-        $proceedings = array("booktitle", "series", "author", "location", "publisher", "volume", "pages", "address", "isbn", "year");
-        $techreport = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn", "year");
-        $unpublished = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn", "year");
-        $other = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn", "year");
+        $article = array("title", "author", "journal", "series", "location", "publisher", "volume", "pages", "address", "isbn");
+        $book = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
+        $booklet = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
+        $conference = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
+        $inbook = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
+        $incollection = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "chapter", "pages", "address", "isbn");
+        $inproceedings = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "chapter", "pages", "address", "isbn");
+        $manual = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
+        $mastersthesis = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
+        $misc = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
+        $phdthesis = array("title", "author", "journal", "series", "location", "publisher", "volume", "pages", "address", "isbn");
+        $proceedings = array("booktitle", "series", "author", "location", "publisher", "volume", "pages", "address", "isbn");
+        $techreport = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
+        $unpublished = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
+        $other = array("title", "author", "booktitle", "series", "location", "publisher", "volume", "pages", "address", "isbn");
 
         /*
          Delimiter for Seperating each bibtex field
@@ -214,7 +191,7 @@
         $sortby = array('journal', 'conference', 'book', 'editorial', 'theses', 'gconferences');
         $sortbyTitle = array('Journal and Magazine Papers', 'Conference and Workshop Papers', 'Book Chapters', 'Editorials','Theses', 'Greek Conferences');
 
-      $projects = array('all');
+        $projects = array('all');
 
         include 'bibtex.php';
         /*
@@ -232,5 +209,19 @@
     </div>
     </div>
 </section>
+<hr class="star-primary">
+<footer>
+    <small>
+    <center>
+        © 2018 | Navjyoti Singh. Credits: AR template
+    <a onclick="javascript:$('#credit').toggle();"><img border="0" src="../images/ccby.png"/></a>
+    <div style="display:none;" id="credit">[AR template available under Creative Commons CC BY 4.0 licence:
+    <a href="https://github.com/dmsl/academic-responsive-template"_blank">
+        https://github.com/dmsl/academic-responsive-template
+    </a> ]
+    </div>
+    </center>
+    </small>
+</footer>
 </body>
 </html>
