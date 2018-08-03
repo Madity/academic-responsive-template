@@ -79,7 +79,25 @@
 <section style="margin-top:50px">
   <div class="container lead">
     <h3>Workshop on Foundations of Arts: Dance</h3>
-    <div id="player">
+    <div id="player1">
+    </div>
+  </div>
+
+  <div class="container lead">
+    <h3>Workshop on Foundations of Arts: Color and Visuality</h3>
+    <div id="player2">
+    </div>
+  </div>
+
+  <div class="container lead">
+    <h3>Workshop on Foundations of Dance</h3>
+    <div id="player3">
+    </div>
+  </div>
+
+  <div class="container lead">
+    <h3>Meeting in memory of Prof. Navjyoti Singh, 6th May 2018, New Delhi</h3>
+    <div id="player4">
     </div>
   </div>
 </section>
@@ -91,11 +109,31 @@
    var firstScriptTag = document.getElementsByTagName('script')[0];
    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-   // 3. This function creates an <iframe> (and YouTube player)
-   //    after the API code downloads.
-   var player;
+
+   var player1;
+   var player2;
+   var player3;
+   var player4;
    function onYouTubeIframeAPIReady() {
-     player = new YT.Player('player', {
+     player1 = new YT.Player('player1', {
+       width: "100%",
+       height: "600px",
+       playerVars: {
+            listType:'playlist',
+            list: 'PLfhUdaq-667MQsm8DoR9TfXiW6HLMHuVu'
+        }
+     });
+
+     player2 = new YT.Player('player2', {
+       width: "100%",
+       height: "600px",
+       playerVars: {
+            listType:'playlist',
+            list: 'PLfhUdaq-667Ps5iTd7Cu4YumA5ZPQFD0g'
+        }
+     });
+
+     player3 = new YT.Player('player3', {
        width: "100%",
        height: "600px",
        playerVars: {
@@ -103,6 +141,16 @@
             list: 'PLfhUdaq-667P3v8LOuuZekfBhe5C7uxEy'
         }
      });
+
+     player3 = new YT.Player('player4', {
+       width: "100%",
+       height: "600px",
+       playerVars: {
+            listType:'playlist',
+            list: 'PLfhUdaq-667Nzq4iWi42WXNuHQWhMR3sW'
+        }
+     });
+
    }
  </script>
 
